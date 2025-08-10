@@ -21,7 +21,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C0D6F710-3EFC-3DD4-A769-5873BD161D23}</ProjectGuid>
+    <ProjectGuid>{CE7E31AD-8C0B-3F96-B0F6-9F068116039B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -88,11 +88,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\runner\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\runner\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Workspace/animal1004/animal1004FluttuerProject/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/2003s/Desktop/workspace/animal1004/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Workspace/animal1004/animal1004FluttuerProject/windows -BC:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64 --check-stamp-file C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/2003s/Desktop/workspace/animal1004/windows -BC:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64 --check-stamp-file C:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -101,11 +101,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Workspace/animal1004/animal1004FluttuerProject/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Users/2003s/Desktop/workspace/animal1004/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Workspace/animal1004/animal1004FluttuerProject/windows -BC:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64 --check-stamp-file C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/2003s/Desktop/workspace/animal1004/windows -BC:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64 --check-stamp-file C:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -114,11 +114,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Workspace/animal1004/animal1004FluttuerProject/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/2003s/Desktop/workspace/animal1004/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Workspace/animal1004/animal1004FluttuerProject/windows -BC:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64 --check-stamp-file C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/2003s/Desktop/workspace/animal1004/windows -BC:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64 --check-stamp-file C:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -127,7 +127,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
@@ -135,14 +135,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\ZERO_CHECK.vcxproj">
-      <Project>{432AC322-DFDA-3342-8801-A533EAED658A}</Project>
+    <ProjectReference Include="C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\ZERO_CHECK.vcxproj">
+      <Project>{49A5DB19-3589-3802-9789-645C8D8D227F}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\runner\animal1004.vcxproj">
-      <Project>{F3798E10-4449-3293-8D7C-28EC98220D11}</Project>
+    <ProjectReference Include="C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\runner\animal1004.vcxproj">
+      <Project>{9E603C26-B9D5-3D11-8DA6-68F87BF6E9CD}</Project>
       <Name>animal1004</Name>
     </ProjectReference>
   </ItemGroup>
