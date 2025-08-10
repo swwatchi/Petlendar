@@ -1,0 +1,11 @@
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/icudtl.dat
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/flutter_windows.dll
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.bin
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.json
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/FontManifest.json
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/kernel_blob.bin
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/NativeAssetsManifest.json
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/NOTICES.Z
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag

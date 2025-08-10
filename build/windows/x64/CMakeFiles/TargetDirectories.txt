@@ -1,0 +1,10 @@
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/CMakeFiles/INSTALL.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/CMakeFiles/ALL_BUILD.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/CMakeFiles/ZERO_CHECK.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/flutter/CMakeFiles/flutter_assemble.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/flutter/CMakeFiles/INSTALL.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/CMakeFiles/animal1004.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/CMakeFiles/INSTALL.dir
+C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/CMakeFiles/ALL_BUILD.dir

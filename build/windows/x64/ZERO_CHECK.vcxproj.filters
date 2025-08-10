@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\CMakeFiles\08cd35d814623a5602248693e4c26e59\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{01FAC559-65C8-3C6E-960F-2A33325EA9C4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

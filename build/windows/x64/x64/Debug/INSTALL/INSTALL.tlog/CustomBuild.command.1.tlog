@@ -1,0 +1,10 @@
+^C:\WORKSPACE\ANIMAL1004\ANIMAL1004FLUTTUERPROJECT\BUILD\WINDOWS\X64\CMAKEFILES\08CD35D814623A5602248693E4C26E59\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
