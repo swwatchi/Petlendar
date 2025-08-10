@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: true, // 디버그 배너 제거
+      debugShowCheckedModeBanner: true, // 디버그 배너 제거(false)
       home: Scaffold(
         body: Center(
           child: Text(
