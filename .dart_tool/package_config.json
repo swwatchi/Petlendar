@@ -164,7 +164,7 @@
       "languageVersion": "3.3"
     },
     {
-      "name": "animal1004",
+      "name": "petlendar",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.8"
