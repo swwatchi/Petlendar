@@ -1,4 +1,4 @@
-# Install script for directory: C:/Workspace/animal1004/animal1004FluttuerProject/windows/runner
+# Install script for directory: C:/Users/2003s/Desktop/workspace/animal1004/windows/runner
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,6 +35,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/runner/install_local_manifest.txt"
+  file(WRITE "C:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64/runner/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

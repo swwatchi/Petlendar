@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\CMakeFiles\72a01837e7d146755cf6a4d3c7f04df6\INSTALL_force.rule">
+    <CustomBuild Include="C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\CMakeFiles\9c6c78e8b1b3dc0484e691b0fe2196ef\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{01FAC559-65C8-3C6E-960F-2A33325EA9C4}</UniqueIdentifier>
+      <UniqueIdentifier>{2F037A0B-BE7B-3B28-BFEC-B2338A4E2D64}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

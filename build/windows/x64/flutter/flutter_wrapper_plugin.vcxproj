@@ -18,7 +18,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{30FC1B4C-7012-3233-9945-2DBEDCB1624A}</ProjectGuid>
+    <ProjectGuid>{3C582CFE-DF53-30B6-803B-CA4A07257AED}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -50,22 +50,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\flutter\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\flutter\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">flutter_wrapper_plugin.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">flutter_wrapper_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\flutter\Profile\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\flutter\Profile\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">flutter_wrapper_plugin.dir\Profile\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">flutter_wrapper_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\flutter\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\flutter\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">flutter_wrapper_plugin.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">flutter_wrapper_plugin</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -88,10 +88,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_HAS_EXCEPTIONS=0;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -104,7 +104,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
@@ -128,10 +128,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;UNICODE;_UNICODE;CMAKE_INTDIR=\"Profile\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <DisableSpecificWarnings>"4100"</DisableSpecificWarnings>
@@ -168,10 +168,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\include;C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -183,11 +183,11 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Workspace/animal1004/animal1004FluttuerProject/windows/flutter/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/2003s/Desktop/workspace/animal1004/windows/flutter/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Workspace/animal1004/animal1004FluttuerProject/windows -BC:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64 --check-stamp-file C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/flutter/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/2003s/Desktop/workspace/animal1004/windows -BC:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64 --check-stamp-file C:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64/flutter/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -195,12 +195,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\generated_config.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\flutter\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\generated_config.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\flutter\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Workspace/animal1004/animal1004FluttuerProject/windows/flutter/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Users/2003s/Desktop/workspace/animal1004/windows/flutter/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Workspace/animal1004/animal1004FluttuerProject/windows -BC:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64 --check-stamp-file C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/flutter/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/2003s/Desktop/workspace/animal1004/windows -BC:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64 --check-stamp-file C:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64/flutter/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -208,12 +208,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\generated_config.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\flutter\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\generated_config.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\flutter\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Workspace/animal1004/animal1004FluttuerProject/windows/flutter/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/2003s/Desktop/workspace/animal1004/windows/flutter/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Workspace/animal1004/animal1004FluttuerProject/windows -BC:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64 --check-stamp-file C:/Workspace/animal1004/animal1004FluttuerProject/build/windows/x64/flutter/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/2003s/Desktop/workspace/animal1004/windows -BC:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64 --check-stamp-file C:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64/flutter/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -221,26 +221,26 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\generated_config.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\flutter\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\generated_config.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\flutter\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc" />
-    <ClCompile Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc" />
-    <ClCompile Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc" />
+    <ClCompile Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc" />
+    <ClCompile Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc" />
+    <ClCompile Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\ZERO_CHECK.vcxproj">
-      <Project>{432AC322-DFDA-3342-8801-A533EAED658A}</Project>
+    <ProjectReference Include="C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\ZERO_CHECK.vcxproj">
+      <Project>{49A5DB19-3589-3802-9789-645C8D8D227F}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Workspace\animal1004\animal1004FluttuerProject\build\windows\x64\flutter\flutter_assemble.vcxproj">
-      <Project>{C1930F88-83EF-398A-86CB-36DA4E357FE4}</Project>
+    <ProjectReference Include="C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\flutter\flutter_assemble.vcxproj">
+      <Project>{C69EE650-F6B2-34CE-A94D-E53E9EFB7016}</Project>
       <Name>flutter_assemble</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

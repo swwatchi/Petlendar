@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
+    <ClCompile Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
+    <ClCompile Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc">
+    <ClCompile Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Workspace\animal1004\animal1004FluttuerProject\windows\flutter\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\2003s\Desktop\workspace\animal1004\windows\flutter\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{01FAC559-65C8-3C6E-960F-2A33325EA9C4}</UniqueIdentifier>
+      <UniqueIdentifier>{2F037A0B-BE7B-3B28-BFEC-B2338A4E2D64}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{D6398436-B457-3FFD-9278-98FEFCF9FB81}</UniqueIdentifier>
+      <UniqueIdentifier>{79C92DD2-DB99-3AF1-8B1D-94E99D837B96}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
