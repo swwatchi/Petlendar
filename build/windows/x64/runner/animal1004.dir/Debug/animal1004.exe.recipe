@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\Workspace\petlendar_Project\build\windows\x64\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
+      <FullPath>C:\Workspace\petlendar_Project\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\2003s\Desktop\workspace\animal1004\build\windows\x64\runner\Debug\animal1004.exe</FullPath>
+      <FullPath>C:\Workspace\petlendar_Project\build\windows\x64\runner\Debug\animal1004.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

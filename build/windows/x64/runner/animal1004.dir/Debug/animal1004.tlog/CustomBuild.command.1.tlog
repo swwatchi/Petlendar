@@ -1,6 +1,6 @@
-^C:\USERS\2003S\DESKTOP\WORKSPACE\ANIMAL1004\WINDOWS\RUNNER\CMAKELISTS.TXT
+^C:\WORKSPACE\PETLENDAR_PROJECT\WINDOWS\RUNNER\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/2003s/Desktop/workspace/animal1004/windows -BC:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64 --check-stamp-file C:/Users/2003s/Desktop/workspace/animal1004/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Workspace/petlendar_Project/windows -BC:/Workspace/petlendar_Project/build/windows/x64 --check-stamp-file C:/Workspace/petlendar_Project/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
