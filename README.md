@@ -1,6 +1,6 @@
 # 📱Project Name | petlendar / 펫린더
-개발 문상원 & 박경로
-Dev MSW & PGR
+개발 문상원 & 박경로 & 김영준
+Dev MSW & PGR & KYJ
 
 첫 번째 플러터 프로젝트
 The first Flutter project
