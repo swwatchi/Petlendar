@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'album.dart';
+import 'settingscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       const Center(child: Text("리스트 페이지", style: TextStyle(fontSize: 24))),
       const Center(child: Text("캘린더 페이지", style: TextStyle(fontSize: 24))),
       const AlbumScreen(),
-      const Center(child: Text("설정 페이지", style: TextStyle(fontSize: 24))),
+      const SettingScreen(),
     ];
   }
 
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true, //디버깅 배너 표시
       home: Scaffold(
         body: _buildPages()[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(

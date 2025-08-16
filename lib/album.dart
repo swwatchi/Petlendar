@@ -165,7 +165,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
