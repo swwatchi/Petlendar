@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'album.dart';
 import 'settingscreen.dart';
+import 'home_page.dart';
+import 'models/pet_profile.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => PetProfileProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -20,7 +29,7 @@ class _MyAppState extends State<MyApp> {
   /// 페이지 목록
   List<Widget> _buildPages() {
     return [
-      const Center(child: Text("홈 화면", style: TextStyle(fontSize: 24))),
+      const HomePage(),
       const Center(child: Text("리스트 페이지", style: TextStyle(fontSize: 24))),
       const Center(child: Text("캘린더 페이지", style: TextStyle(fontSize: 24))),
       const AlbumScreen(),
@@ -57,5 +66,21 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+}
+
+class PetProfileProvider extends ChangeNotifier {
+  final List<PetProfile> _profiles = [];
+
+  List<PetProfile> get profiles => _profiles;
+
+  void addProfile(PetProfile profile) {
+    _profiles.add(profile);
+    notifyListeners();
+  }
+
+  void updateProfile(int index, PetProfile profile) {
+    _profiles[index] = profile;
+    notifyListeners();
   }
 }
