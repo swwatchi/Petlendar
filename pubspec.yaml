@@ -22,6 +22,7 @@ dependencies:
   vibration: ^3.1.3
   cupertino_icons: ^1.0.8
   provider: ^6.1.5
+  supabase_flutter: ^2.9.1
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +33,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+  - assets/src/
+
 
 flutter_icons:
   android: true

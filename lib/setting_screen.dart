@@ -40,7 +40,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
 
     //에뮬레이터 진동 기능 X, 기능은 문제 없음
-    if (_vibration && await Vibration.hasVibrator() ?? false) {
+    if (_vibration && await Vibration.hasVibrator()) {
       Vibration.vibrate(duration: 250,); // 0.25초 진동
     }
 
@@ -48,7 +48,7 @@ class _SettingScreenState extends State<SettingScreen> {
     msg: "진동 ${_vibration ? '켜짐' : '꺼짐'}",
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.BOTTOM,
-    backgroundColor: Colors.black.withOpacity(0.7),
+    backgroundColor: Color.fromARGB(178, 0, 0, 0),
     textColor: Colors.white,
     fontSize: 16.0,
     // 아이콘 제거 → 기본적으로 Fluttertoast는 아이콘이 없으므로 그대로 메시지만 표시
@@ -63,7 +63,7 @@ class _SettingScreenState extends State<SettingScreen> {
     msg: "알림 ${_notifications ? '허용' : '차단'}",
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.BOTTOM,
-    backgroundColor: Colors.black.withOpacity(0.7),
+    backgroundColor: Color.fromARGB(178, 0, 0, 0),
     textColor: Colors.white,
     fontSize: 16.0,
     // 아이콘 제거
