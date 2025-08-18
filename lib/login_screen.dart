@@ -9,15 +9,15 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: SingleChildScrollView( // 키보드 올라올 때 화면 밀림 방지
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start, // 상단부터 배치
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(height: 140), // 상단 여백
+            const SizedBox(height: 140),
 
             // 로고
             Image.asset(
-              'assets/src/petlendar.png', // 로고 이미지 경로
+              'assets/src/petlendar.png',
               width: 200,
             ),
 
@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
               child: SizedBox(
-                width: 300, // 원하는 가로 길이
+                width: 300,
                 child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -40,7 +40,7 @@ class LoginScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
               child: SizedBox(
-                width: 300, // 원하는 가로 길이
+                width: 300,
                 child: TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -78,9 +78,7 @@ class LoginScreen extends StatelessWidget {
               width: 300,
               height: 50,
               child: ElevatedButton(
-                onPressed: () {
-                  // if (onLoginSuccess != null) onLoginSuccess!(); 로그인 성공 처리
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(0, 230, 230, 230),
                   shape: RoundedRectangleBorder(
@@ -96,23 +94,40 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 20),
 
-            // 네이버 로그인 버튼
-            GestureDetector(
-              child: Image.asset(
-                'assets/src/naverLoginBtn.png',
+            // 구글 로그인 버튼 (Ink.image 적용)
+            Material(
+              color: Colors.transparent,
+              child: Ink.image(
+                image: const AssetImage('assets/src/googleLoginBtn.png'),
                 width: 300,
+                height: 44,
+                fit: BoxFit.cover,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(8),
+                  onTap: () {
+
+                  },
+                ),
               ),
             ),
             const SizedBox(height: 10),
 
-            // 카카오 로그인 버튼
-            GestureDetector(
-              child: Image.asset(
-                'assets/src/kakaoLoginBtn.png',
+            // 카카오 로그인 버튼 (Ink.image 적용)
+            Material(
+              color: Colors.transparent,
+              child: Ink.image(
+                image: const AssetImage('assets/src/kakaoLoginBtn.png'),
                 width: 300,
+                height: 44,
+                fit: BoxFit.cover,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(8),
+                  onTap: () {
+
+                  },
+                ),
               ),
             ),
             const SizedBox(height: 10),
@@ -120,12 +135,12 @@ class LoginScreen extends StatelessWidget {
             // 개발자 로그인 버튼
             ElevatedButton(
               onPressed: () {
-                if (onLoginSuccess != null) onLoginSuccess!(); // 개발자 로그인 처리
+                if (onLoginSuccess != null) onLoginSuccess!();
               },
               child: const Text("개발자 로그인"),
             ),
 
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
           ],
         ),
       ),
