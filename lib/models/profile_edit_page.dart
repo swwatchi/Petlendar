@@ -34,19 +34,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     }
   }
 
-  Future<void> _pickImage(bool isProfile) async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      setState(() {
-        if (isProfile) {
-          _profileImagePath = image.path;
-        } else {
-          _backgroundImagePath = image.path;
-        }
-      });
-    }
-  }
-
+  // 성별 버튼 위젯
   Widget _genderButton(String gender, String emoji) {
     final bool isSelected = _selectedGender == gender;
     return GestureDetector(
@@ -106,8 +94,43 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
               alignment: Alignment.center,
               clipBehavior: Clip.none,
               children: [
+                // ✅ 배경 이미지
                 GestureDetector(
-                  onTap: () => _pickImage(false),
+                  onTap: () {
+                    // 선택 다이얼로그 (사진첩 / 기본 이미지)
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ListTile(
+                            leading: const Icon(Icons.photo),
+                            title: const Text("사진첩에서 추가"),
+                            onTap: () async {
+                              Navigator.pop(context);
+                              final pickedFile =
+                                  await _picker.pickImage(source: ImageSource.gallery);
+                              if (pickedFile != null) {
+                                setState(() {
+                                  _backgroundImagePath = pickedFile.path;
+                                });
+                              }
+                            },
+                          ),
+                          ListTile(
+                            leading: const Icon(Icons.image),
+                            title: const Text("기본 이미지"),
+                            onTap: () {
+                              Navigator.pop(context);
+                              setState(() {
+                                _backgroundImagePath = ''; // 기본 이미지로 초기화
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                   child: _backgroundImagePath.isNotEmpty
                       ? Image.file(
                           File(_backgroundImagePath),
@@ -121,10 +144,45 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                           child: const Center(child: Text("배경 사진 추가")),
                         ),
                 ),
+
+                // ✅ 프로필 사진
                 Positioned(
                   bottom: -50,
                   child: GestureDetector(
-                    onTap: () => _pickImage(true),
+                    onTap: () async {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) => Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ListTile(
+                              leading: const Icon(Icons.photo),
+                              title: const Text("사진첩에서 추가"),
+                              onTap: () async {
+                                Navigator.pop(context);
+                                final pickedFile =
+                                    await _picker.pickImage(source: ImageSource.gallery);
+                                if (pickedFile != null) {
+                                  setState(() {
+                                    _profileImagePath = pickedFile.path;
+                                  });
+                                }
+                              },
+                            ),
+                            ListTile(
+                              leading: const Icon(Icons.person),
+                              title: const Text("기본 이미지"),
+                              onTap: () {
+                                Navigator.pop(context);
+                                setState(() {
+                                  _profileImagePath = ''; // 기본 아이콘으로 초기화
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                     child: CircleAvatar(
                       radius: 50,
                       backgroundImage: _profileImagePath.isNotEmpty

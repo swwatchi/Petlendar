@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../home_page.dart';
 import '../album_screen.dart';
 import '../setting_screen.dart';
+import '../calendar_screen.dart';
 
 class MainBottomNav extends StatefulWidget {
   const MainBottomNav({super.key});
@@ -16,7 +17,7 @@ class _MainBottomNavState extends State<MainBottomNav> {
   final List<Widget> _pages = const [
     HomePage(),
     Center(child: Text("리스트 페이지", style: TextStyle(fontSize: 24))),
-    Center(child: Text("캘린더 페이지", style: TextStyle(fontSize: 24))),
+    CalendarScreen(),
     AlbumScreen(),
     SettingScreen(),
   ];
