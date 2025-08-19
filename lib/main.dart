@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'album_screen.dart';
-import 'setting_screen.dart';
-import 'home_page.dart';
 import 'login_screen.dart';
 import 'models/pet_profile.dart';
+import 'models/main_bottom_nav.dart'; // ✅ 분리된 네비바 임포트
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,56 +67,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       home: _isLoggedIn
-          ? const MainScreen()
+          ? const MainBottomNav() // ✅ 분리된 네비바 시작 화면
           : LoginScreen(onLoginSuccess: _onLoginSuccess),
-    );
-  }
-}
-
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
-
-  List<Widget> _pages() {
-    return [
-      const HomePage(),
-      const Center(child: Text("리스트 페이지", style: TextStyle(fontSize: 24))),
-      const Center(child: Text("캘린더 페이지", style: TextStyle(fontSize: 24))),
-      const AlbumScreen(),
-      const SettingScreen(),
-    ];
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages()[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications), label: '리스트'),
-          BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: '캘린더'),
-          BottomNavigationBarItem(icon: Icon(Icons.camera_alt), label: '사진첩'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: '설정'),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 44, 44, 44),
-        unselectedItemColor: const Color.fromARGB(255, 129, 129, 129),
-        onTap: _onItemTapped,
-      ),
     );
   }
 }
