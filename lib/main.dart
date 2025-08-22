@@ -7,6 +7,9 @@ import 'login_screen.dart';
 import 'models/pet_profile.dart';
 import 'models/main_bottom_nav.dart';
 
+
+PetProfile? lastSelectedProfile; // 전역변수 (마지막 본 프로필 저장)
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
