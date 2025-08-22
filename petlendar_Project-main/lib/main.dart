@@ -11,6 +11,8 @@ import 'login_screen.dart';
 import 'models/pet_profile.dart';
 import 'models/main_bottom_nav.dart'; // ✅ 분리된 네비바 임포트
 
+PetProfile? lastSelectedProfile; // ✅ 전역 변수 추가 (마지막 본 프로필 저장)
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
