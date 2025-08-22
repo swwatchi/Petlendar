@@ -3,33 +3,32 @@ import '../home_page.dart';
 import '../album_screen.dart';
 import '../setting_screen.dart';
 import '../calendar_screen.dart';
-import '../models/pet_profile.dart';
-import '../models/profile_View_page.dart';
+import 'pet_profile.dart';
+import 'profile_View_page.dart';
 
 class MainBottomNav extends StatefulWidget {
   const MainBottomNav({super.key});
 
   @override
-  MainBottomNavState createState() => MainBottomNavState();
+  State<MainBottomNav> createState() => _MainBottomNavState();
 }
-//수정 위치
-// _MainBottomNavState → public으로 변경
-class MainBottomNavState extends State<MainBottomNav> {
+
+class _MainBottomNavState extends State<MainBottomNav> {
   int _selectedIndex = 0;
   DateTime? _lastTapTime;
   PetProfile? _lastViewedProfile;
 
-  // HomePage에서 프로필 선택 시 호출
-  void updateLastViewedProfile(PetProfile profile) {
-    _lastViewedProfile = profile;
-  }
 
-  final List<Widget> _pages = [
-    const HomePage(),
-    const Center(child: Text("리스트 페이지", style: TextStyle(fontSize: 24))),
-    const CalendarScreen(),
-    const AlbumScreen(),
-    const SettingScreen(),
+  void updateLastViewedProfile(PetProfile profile) {
+      _lastViewedProfile = profile;
+    }
+
+  final List<Widget> _pages = const [
+    HomePage(),
+    Center(child: Text("리스트 페이지", style: TextStyle(fontSize: 24))),
+    CalendarScreen(),
+    AlbumScreen(),
+    SettingScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -70,8 +69,8 @@ class MainBottomNavState extends State<MainBottomNav> {
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: '설정'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 44, 44, 44),
-        unselectedItemColor: const Color.fromARGB(255, 129, 129, 129),
+        selectedItemColor: Color.fromARGB(255, 44, 44, 44),
+        unselectedItemColor: Color.fromARGB(255, 129, 129, 129),
         onTap: _onItemTapped,
       ),
     );
