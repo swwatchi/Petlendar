@@ -68,16 +68,23 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  // 이메일 로그인
+  // 이메일 로그인 (최신 Supabase v2 대응)
   Future<void> _handleEmailLogin() async {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
-    final success = await AuthService.signInWithEmail(email, password);
-
-    if (!success && mounted) {
+    if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("아이디/비밀번호 로그인 실패")),
+        const SnackBar(content: Text("아이디(이메일)와 비밀번호 모두 입력해주세요")),
+      );
+      return;
+    }
+
+    final error = await AuthService.signInWithEmail(email, password);
+
+    if (error != null && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(error)),
       );
     }
   }
@@ -131,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _emailController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: '아이디 (이메일)',
+                    hintText: '아이디(이메일)',
                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                   ),
                 ),
@@ -164,10 +171,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   child: const Text("회원가입 | "),
                 ),
+
                 GestureDetector(
                   onTap: () {},
                   child: const Text("아이디 찾기 | "),
                 ),
+
                 GestureDetector(
                   onTap: () {},
                   child: const Text("비밀번호 찾기"),

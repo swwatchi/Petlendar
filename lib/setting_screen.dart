@@ -109,8 +109,24 @@ class _SettingScreenState extends State<SettingScreen> {
           ListView(
             padding: const EdgeInsets.all(16),
             children: [
+              const Text('내 계정', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              const Divider(height: 20, thickness: 1),
+                ListTile(
+                title: const Text(
+                  '미구현',
+                  style: TextStyle(
+                    // 텍스트 스타일
+                    ),
+                  ),
+                  onTap: () {
+                    // 클릭 시 동작 작성
+                  print('공지사항 클릭됨');
+                  },
+                ),
+              const SizedBox(height: 30),
+
               const Text(
-                '시스템 설정',
+                '앱 설정',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const Divider(height: 20, thickness: 1),
@@ -125,6 +141,26 @@ class _SettingScreenState extends State<SettingScreen> {
                 onChanged: _handleNotificationChanged,
               ),
               const SizedBox(height: 30),
+
+              const Text(
+                '정보',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const Divider(height: 20, thickness: 1),
+                ListTile(
+                title: const Text(
+                  '공지사항',
+                  style: TextStyle(
+                    // 텍스트 스타일
+                    ),
+                  ),
+                  onTap: () {
+                    // 클릭 시 동작 작성
+                  print('공지사항 클릭됨');
+                  },
+                ),
+              const SizedBox(height: 30),
+
               const Text(
                 '앱 정보',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -138,6 +174,7 @@ class _SettingScreenState extends State<SettingScreen> {
               const SizedBox(height: 60),
             ],
           ),
+
           Positioned(
             right: 16,
             bottom: 16,

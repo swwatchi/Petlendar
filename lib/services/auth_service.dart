@@ -7,17 +7,22 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class AuthService {
   static final SupabaseClient _supabase = Supabase.instance.client;
 
-  /// 이메일 로그인
-  static Future<bool> signInWithEmail(String email, String password) async {
+  /// 이메일/비밀번호 로그인
+  /// 성공 시 null 반환, 실패 시 에러 메시지 반환
+  static Future<String?> signInWithEmail(String email, String password) async {
     try {
       final response = await _supabase.auth.signInWithPassword(
         email: email,
         password: password,
       );
-      return response.user != null;
+      if (response.session != null) return null; // 로그인 성공
+      return "로그인 실패: 알 수 없는 오류";
+    } on AuthException catch (e) {
+      debugPrint("이메일 로그인 AuthException: ${e.message}");
+      return e.message;
     } catch (e) {
       debugPrint("이메일 로그인 에러: $e");
-      return false;
+      return "로그인 중 오류가 발생했습니다";
     }
   }
 
