@@ -2,9 +2,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:app_links/app_links.dart';
-import '../services/auth_service.dart';
-import '../models/main_bottom_nav.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import './services/auth_service.dart';
+import 'models/main_bottom_nav.dart';
+import 'models/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   final VoidCallback? onLoginSuccess;
@@ -155,7 +156,12 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const SignupScreen()),
+                    );
+                  },
                   child: const Text("회원가입 | "),
                 ),
                 GestureDetector(

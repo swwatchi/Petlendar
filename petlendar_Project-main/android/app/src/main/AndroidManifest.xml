@@ -40,6 +40,16 @@
                     android:host="login-callback"/>
             </intent-filter>
 
+            <intent-filter> <!-- 회원가입 전용 intent-filter -->
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <!-- 회원가입 전용 redirect URI -->
+                <data
+                    android:scheme="petlendar-signup"
+                    android:host="signup-callback"/>
+            </intent-filter>
+
         </activity>
 
         <meta-data
