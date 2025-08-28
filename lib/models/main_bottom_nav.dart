@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vibration/vibration.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../home_page.dart';
 import '../album_screen.dart';
 import '../setting_screen.dart';
@@ -18,10 +20,9 @@ class _MainBottomNavState extends State<MainBottomNav> {
   DateTime? _lastTapTime;
   PetProfile? _lastViewedProfile;
 
-
   void updateLastViewedProfile(PetProfile profile) {
-      _lastViewedProfile = profile;
-    }
+    _lastViewedProfile = profile;
+  }
 
   final List<Widget> _pages = const [
     HomePage(),
@@ -31,7 +32,17 @@ class _MainBottomNavState extends State<MainBottomNav> {
     SettingScreen(),
   ];
 
-  void _onItemTapped(int index) {
+  /// 👆 탭 클릭 시 처리
+  void _onItemTapped(int index) async {
+    // SharedPreferences에서 진동 설정 읽기
+    final prefs = await SharedPreferences.getInstance();
+    final vibrationEnabled = prefs.getBool('vibration') ?? true;
+
+    // 진동 가능 여부 확인 후 진동
+    if (vibrationEnabled && await Vibration.hasVibrator() ?? false) {
+      Vibration.vibrate(duration: 50); // 50ms 진동
+    }
+
     if (index == 0) {
       DateTime now = DateTime.now();
       if (_lastTapTime != null &&
@@ -69,8 +80,8 @@ class _MainBottomNavState extends State<MainBottomNav> {
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: '설정'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromARGB(255, 44, 44, 44),
-        unselectedItemColor: Color.fromARGB(255, 129, 129, 129),
+        selectedItemColor: const Color.fromARGB(255, 44, 44, 44),
+        unselectedItemColor: const Color.fromARGB(255, 129, 129, 129),
         onTap: _onItemTapped,
       ),
     );

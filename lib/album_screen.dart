@@ -1,13 +1,16 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
-import 'dart:convert';
-
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'models/photo_item.dart';
 
+class CachedUrl {
+  final String url;
+  final DateTime expiry;
+  CachedUrl(this.url, this.expiry);
+}
 
 class AlbumScreen extends StatefulWidget {
   const AlbumScreen({super.key});
@@ -18,8 +21,8 @@ class AlbumScreen extends StatefulWidget {
 
 class _AlbumScreenState extends State<AlbumScreen> {
   final ImagePicker _picker = ImagePicker();
-  List<XFile> _selectedImages = [];
   List<PhotoItem> photoList = [];
+  Map<String, CachedUrl> _signedUrlCache = {};
   bool _isPicking = false;
   bool _isSelectionMode = false;
   Set<int> _selectedForAction = {};
@@ -30,70 +33,91 @@ class _AlbumScreenState extends State<AlbumScreen> {
     _initializePhotos();
   }
 
+  /// 유저별 사진 불러오기 + signed URL 캐시
   Future<void> _initializePhotos() async {
-    photoList = await loadPhotoList();
-    setState(() {
-      _selectedImages = photoList.map((p) => XFile(p.filePath)).toList();
-    });
-  }
+    try {
+      final user = Supabase.instance.client.auth.currentUser!;
+      final userId = user.id;
 
-  /// 파일 관리
-  Future<String> getPhotosDirectory() async {
-    final directory = await getApplicationDocumentsDirectory();
-    final photosDir = Directory('${directory.path}/photos');
-    if (!photosDir.existsSync()) photosDir.createSync();
-    return photosDir.path;
-  }
+      final response = await Supabase.instance.client
+          .from('user_photos')
+          .select('path')
+          .eq('user_id', userId)
+          .order('created_at', ascending: false);
 
-  Future<File> getPhotoListFile() async {
-    final directory = await getApplicationDocumentsDirectory();
-    return File('${directory.path}/photos.json');
-  }
+      photoList = (response as List<dynamic>).map((e) {
+        return PhotoItem(filePath: e['path'] as String, createdAt: DateTime.now());
+      }).toList();
 
-  Future<void> savePhotoList(List<PhotoItem> photoList) async {
-    final file = await getPhotoListFile();
-    final jsonStr = jsonEncode(photoList.map((p) => p.toJson()).toList());
-    await file.writeAsString(jsonStr);
-  }
+      // 모든 URL 동시 발급
+      await Future.wait(photoList.map((photo) async {
+        final url = await Supabase.instance.client
+            .storage
+            .from('user-photos')
+            .createSignedUrl(photo.filePath, 300);
+        _signedUrlCache[photo.filePath] =
+            CachedUrl(url, DateTime.now().add(const Duration(minutes: 5)));
+      }));
 
-  Future<List<PhotoItem>> loadPhotoList() async {
-    final file = await getPhotoListFile();
-    if (await file.exists()) {
-      final jsonStr = await file.readAsString();
-      final List<dynamic> jsonList = jsonDecode(jsonStr);
-      return jsonList.map((json) => PhotoItem.fromJson(json)).toList();
+      setState(() {});
+    } catch (e) {
+      print('사진 불러오기 에러: $e');
     }
-    return [];
   }
 
-  /// 사진 선택
-  Future<void> _pickImages() async {
+  /// signed URL 자동 갱신
+  Future<String> _getSignedUrl(String filePath) async {
+    final cached = _signedUrlCache[filePath];
+    final now = DateTime.now();
+
+    if (cached != null && now.isBefore(cached.expiry)) return cached.url;
+
+    final newUrl = await Supabase.instance.client
+        .storage
+        .from('user-photos')
+        .createSignedUrl(filePath, 300);
+    _signedUrlCache[filePath] =
+        CachedUrl(newUrl, now.add(const Duration(minutes: 5)));
+    return newUrl;
+  }
+
+  /// 사진 선택 및 업로드
+  Future<void> _pickAndUploadImages() async {
     if (_isPicking) return;
     _isPicking = true;
 
     try {
+      final user = Supabase.instance.client.auth.currentUser!;
+      final userId = user.id;
+
       final List<XFile>? pickedFiles = await _picker.pickMultiImage();
-      if (pickedFiles != null && pickedFiles.isNotEmpty) {
-        final photosDirPath = await getPhotosDirectory();
-        final photosDir = Directory(photosDirPath);
+      if (pickedFiles == null || pickedFiles.isEmpty) return;
 
-        for (var pickedFile in pickedFiles) {
-          final fileName =
-              '${DateTime.now().millisecondsSinceEpoch}_${pickedFile.name}';
-          final savedFile =
-              await File(pickedFile.path).copy('${photosDir.path}/$fileName');
+      for (var pickedFile in pickedFiles) {
+        final fileName = '${DateTime.now().millisecondsSinceEpoch}_${pickedFile.name}';
+        final filePath = '$userId/$fileName';
 
-          final newPhoto =
-              PhotoItem(filePath: savedFile.path, createdAt: DateTime.now());
-          photoList.add(newPhoto);
-          _selectedImages.add(XFile(savedFile.path));
-        }
+        await Supabase.instance.client
+            .storage
+            .from('user-photos')
+            .upload(filePath, File(pickedFile.path));
 
-        await savePhotoList(photoList);
-        setState(() {});
+        await Supabase.instance.client
+            .from('user_photos')
+            .insert({
+              'user_id': userId,
+              'path': filePath,
+              'created_at': DateTime.now().toIso8601String()
+            });
+
+        await _getSignedUrl(filePath);
+
+        photoList.add(PhotoItem(filePath: filePath, createdAt: DateTime.now()));
       }
+
+      setState(() {});
     } catch (e) {
-      print("Error picking images: $e");
+      print("사진 선택/업로드 에러: $e");
     } finally {
       _isPicking = false;
     }
@@ -116,26 +140,47 @@ class _AlbumScreenState extends State<AlbumScreen> {
     });
   }
 
-  void _deleteSelectedImages() {
-    setState(() {
-      for (var index
-          in _selectedForAction.toList()..sort((a, b) => b.compareTo(a))) {
-        final file = File(_selectedImages[index].path);
-        if (file.existsSync()) file.deleteSync();
-        _selectedImages.removeAt(index);
+  /// 사진 삭제
+  Future<void> _deleteSelectedImages() async {
+    try {
+      final user = Supabase.instance.client.auth.currentUser!;
+      final userId = user.id;
+
+      for (var index in _selectedForAction.toList()..sort((a, b) => b.compareTo(a))) {
+        final filePath = photoList[index].filePath;
+
+        await Supabase.instance.client
+            .storage
+            .from('user-photos')
+            .remove([filePath]);
+
+        await Supabase.instance.client
+            .from('user_photos')
+            .delete()
+            .eq('user_id', userId)
+            .eq('path', filePath);
+
         photoList.removeAt(index);
+        _signedUrlCache.remove(filePath);
       }
-      savePhotoList(photoList);
+
       _isSelectionMode = false;
       _selectedForAction.clear();
-    });
+      setState(() {});
+    } catch (e) {
+      print('사진 삭제 에러: $e');
+    }
   }
 
+  /// 선택 사진 공유
   void _shareSelectedImages() async {
     if (_selectedForAction.isEmpty) return;
 
-    List<XFile> filesToShare =
-        _selectedForAction.map((i) => _selectedImages[i]).toList();
+    List<XFile> filesToShare = [];
+    for (var i in _selectedForAction) {
+      final url = await _getSignedUrl(photoList[i].filePath);
+      filesToShare.add(XFile(url));
+    }
 
     await Share.shareXFiles(
       filesToShare,
@@ -143,7 +188,10 @@ class _AlbumScreenState extends State<AlbumScreen> {
     );
   }
 
-  void _viewImageFullScreen(XFile image) {
+  void _viewImageFullScreen(String filePath) async {
+    final url = await _getSignedUrl(filePath);
+    if (!mounted) return;
+
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -154,7 +202,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
               panEnabled: true,
               minScale: 0.5,
               maxScale: 4.0,
-              child: Image.file(File(image.path)),
+              child: Image.network(url),
             ),
           ),
         ),
@@ -173,7 +221,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
             children: [
               if (!_isSelectionMode) ...[
                 ElevatedButton.icon(
-                  onPressed: _pickImages,
+                  onPressed: _pickAndUploadImages,
                   icon: const Icon(Icons.add),
                   label: const Text("추가"),
                 ),
@@ -187,15 +235,13 @@ class _AlbumScreenState extends State<AlbumScreen> {
               const SizedBox(width: 8),
               if (_isSelectionMode) ...[
                 ElevatedButton.icon(
-                  onPressed:
-                      _selectedForAction.isEmpty ? null : _deleteSelectedImages,
+                  onPressed: _selectedForAction.isEmpty ? null : _deleteSelectedImages,
                   icon: const Icon(Icons.delete),
                   label: const Text("삭제"),
                 ),
                 const SizedBox(width: 8),
                 ElevatedButton.icon(
-                  onPressed:
-                      _selectedForAction.isEmpty ? null : _shareSelectedImages,
+                  onPressed: _selectedForAction.isEmpty ? null : _shareSelectedImages,
                   icon: const Icon(Icons.share),
                   label: const Text("공유"),
                 ),
@@ -204,70 +250,77 @@ class _AlbumScreenState extends State<AlbumScreen> {
           ),
         ),
         Expanded(
-          child: _selectedImages.isEmpty
-              ? const Center(
-                  child: Text("사진을 선택해주세요",
-                      style: TextStyle(fontSize: 20)),
-                )
+          child: photoList.isEmpty
+              ? const Center(child: Text("사진을 선택해주세요", style: TextStyle(fontSize: 20)))
               : Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ReorderableGridView.count(
                     crossAxisCount: 3,
                     mainAxisSpacing: 4,
                     crossAxisSpacing: 4,
-                    children: List.generate(
-                      _selectedImages.length,
-                      (index) {
-                        bool isSelected = _selectedForAction.contains(index);
-                        return GestureDetector(
-                          key: ValueKey(_selectedImages[index].path),
-                          onTap: () {
-                            if (_isSelectionMode) {
-                              _selectForAction(index);
-                            } else {
-                              _viewImageFullScreen(_selectedImages[index]);
-                            }
-                          },
-                          child: Stack(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  border: isSelected
-                                      ? Border.all(color: Colors.red, width: 3)
-                                      : null,
-                                ),
-                                child: Image.file(
-                                  File(_selectedImages[index].path),
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
-                                  height: double.infinity,
+                    children: List.generate(photoList.length, (index) {
+                      bool isSelected = _selectedForAction.contains(index);
+                      final filePath = photoList[index].filePath;
+
+                      return GestureDetector(
+                        key: ValueKey(filePath),
+                        onTap: () => _isSelectionMode
+                            ? _selectForAction(index)
+                            : _viewImageFullScreen(filePath),
+                        child: Stack(
+                          children: [
+                            FutureBuilder<String>(
+                              future: _getSignedUrl(filePath),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState == ConnectionState.waiting) {
+                                  return Container(
+                                    color: Colors.grey[300],
+                                    child: const Center(
+                                      child: CircularProgressIndicator(strokeWidth: 2),
+                                    ),
+                                  );
+                                } else if (snapshot.hasError || !snapshot.hasData) {
+                                  return Container(
+                                    color: Colors.grey[300],
+                                    child: const Center(
+                                      child: Icon(Icons.error, color: Colors.red),
+                                    ),
+                                  );
+                                }
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    border: isSelected
+                                        ? Border.all(color: Colors.red, width: 3)
+                                        : null,
+                                  ),
+                                  child: Image.network(
+                                    snapshot.data!,
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                  ),
+                                );
+                              },
+                            ),
+                            if (_isSelectionMode)
+                              Positioned(
+                                top: 4,
+                                right: 4,
+                                child: Icon(
+                                  isSelected
+                                      ? Icons.check_circle
+                                      : Icons.radio_button_unchecked,
+                                  color: Colors.red,
                                 ),
                               ),
-                              if (_isSelectionMode)
-                                Positioned(
-                                  top: 4,
-                                  right: 4,
-                                  child: Icon(
-                                    isSelected
-                                        ? Icons.check_circle
-                                        : Icons.radio_button_unchecked,
-                                    color: Colors.red,
-                                  ),
-                                ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
+                          ],
+                        ),
+                      );
+                    }),
                     onReorder: (oldIndex, newIndex) {
                       setState(() {
-                        final image = _selectedImages.removeAt(oldIndex);
-                        _selectedImages.insert(newIndex, image);
-
                         final photo = photoList.removeAt(oldIndex);
                         photoList.insert(newIndex, photo);
-
-                        savePhotoList(photoList);
                       });
                     },
                   ),
