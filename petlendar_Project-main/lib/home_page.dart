@@ -1,5 +1,3 @@
-// home_page.dart
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -106,7 +104,7 @@ class HomePage extends StatelessWidget {
                     ),
                     Positioned(
                       top: cardHeight * 0.5 - profileRadius,
-                      left: screenWidth / 2 - profileRadius,
+                      left: 130,
                       child: Stack(
                         clipBehavior: Clip.none,
                         children: [
