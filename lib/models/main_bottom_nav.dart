@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../home_page.dart';
 import '../album_screen.dart';
 import '../setting_screen.dart';
 import '../calendar_screen.dart';
-import 'pet_profile.dart';
-import 'profile_View_page.dart';
+import 'pet_profile_provider.dart';
 
 class MainBottomNav extends StatefulWidget {
   const MainBottomNav({super.key});
@@ -18,11 +18,6 @@ class MainBottomNav extends StatefulWidget {
 class _MainBottomNavState extends State<MainBottomNav> {
   int _selectedIndex = 0;
   DateTime? _lastTapTime;
-  PetProfile? _lastViewedProfile;
-
-  void updateLastViewedProfile(PetProfile profile) {
-    _lastViewedProfile = profile;
-  }
 
   final List<Widget> _pages = const [
     HomePage(),
@@ -43,26 +38,18 @@ class _MainBottomNavState extends State<MainBottomNav> {
       Vibration.vibrate(duration: 50); // 50ms 진동
     }
 
+    setState(() {
+          _selectedIndex = index;
+        });
+
     if (index == 0) {
       DateTime now = DateTime.now();
-      if (_lastTapTime != null &&
-          now.difference(_lastTapTime!) < const Duration(milliseconds: 400)) {
-        // 더블탭: 마지막 본 프로필이 있으면 상세 페이지 열기
-        if (_lastViewedProfile != null) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) =>
-                  ProfileViewPage(index: 0, profile: _lastViewedProfile!),
-            ),
-          );
-        }
-      } else {
-        setState(() => _selectedIndex = 0);
+      if (_lastTapTime != null && now.difference(_lastTapTime!) < const Duration(milliseconds: 400)) {
+        // 더블탭: 프로필 선택 상태 초기화
+        final provider = Provider.of<PetProfileProvider>(context, listen: false);
+        provider.clearSelection();
       }
       _lastTapTime = now;
-    } else {
-      setState(() => _selectedIndex = index);
     }
   }
 

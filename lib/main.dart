@@ -6,6 +6,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'login_screen.dart';
 import 'models/pet_profile.dart';
 import 'models/main_bottom_nav.dart';
+import 'models/pet_profile_provider.dart';
 
 
 PetProfile? lastSelectedProfile; // 전역변수 (마지막 본 프로필 저장)
@@ -75,28 +76,5 @@ class _MyAppState extends State<MyApp> {
           ? const MainBottomNav()
           : LoginScreen(onLoginSuccess: _onLoginSuccess),
     );
-  }
-}
-
-class PetProfileProvider extends ChangeNotifier {
-  final List<PetProfile> _profiles = [];
-
-  List<PetProfile> get profiles => _profiles;
-
-  void addProfile(PetProfile profile) {
-    _profiles.add(profile);
-    notifyListeners();
-  }
-
-  void updateProfile(int index, PetProfile profile) {
-    _profiles[index] = profile;
-    notifyListeners();
-  }
-
-  void deleteProfile(int index) {
-    if (index >= 0 && index < _profiles.length) {
-      _profiles.removeAt(index);
-      notifyListeners();
-    }
   }
 }
